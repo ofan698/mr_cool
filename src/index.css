@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Custom Branding Palette inspired by Mr. Cool and UPPKB Tenayan Raya */
+  --color-brand-blue: #1E90FF;        /* Dodger Blue / Royal Blue */
+  --color-brand-dark: #0F172A;        /* Slate 900 for dark texts */
+  --color-brand-darkblue: #0B1E36;    /* Dark Navy for trust background */
+  --color-brand-orange: #FFA500;      /* Vibrant Orange for high conversion CTA */
+  --color-brand-orange-hover: #E08B00;
+  --color-brand-accent: #E0F2FE;      /* Light blue-sky */
+  
+  --animate-pulse-subtle: pulse-subtle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: float-animation 6s ease-in-out infinite;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .95; transform: scale(1.02); }
+}
+
+@keyframes float-animation {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Custom styles for high-fidelity animations and UI effects */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-card-dark {
+  background: rgba(11, 30, 54, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glow-orange {
+  box-shadow: 0 4px 20px rgba(255, 165, 0, 0.4);
+}
+
+.glow-blue {
+  box-shadow: 0 4px 20px rgba(30, 144, 255, 0.3);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+

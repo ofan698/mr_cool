@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mr. Cool Air Conditioner Service | Servis AC Pekanbaru</title>
+  
+  <!-- Tailwind CSS CDN (v3) for easy, offline-independent rendering -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Link to the separated stylesheet -->
+  <link rel="stylesheet" href="standalone_style.css">
+
+  <!-- Tailwind Custom Config to support brand colors natively -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#1E90FF',
+              blueHover: '#1579DB',
+              dark: '#0F172A',
+              darkblue: '#0B1E36',
+              orange: '#FFA500',
+              orangeHover: '#E08B00',
+              accent: '#E0F2FE'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 font-sans text-brand-dark antialiased overflow-x-hidden">
+
+  <!-- 1. HEADER & NAVIGATION -->
+  <header class="relative w-full z-50">
+    <!-- Top Bar (Inspired by UPPKB Tenayan Raya Layout) -->
+    <div class="bg-brand-darkblue text-gray-300 text-xs py-2 px-4 sm:px-6 md:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 border-b border-white/5">
+      <div class="flex flex-wrap items-center justify-center gap-4 text-center sm:text-left">
+        <div class="flex items-center gap-1.5">
+          <!-- Clock icon -->
+          <svg class="w-3.5 h-3.5 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <span>Setiap Hari, 08.00 - 20.00 WIB</span>
+        </div>
+        <div class="hidden md:flex items-center gap-1.5">
+          <!-- Email icon -->
+          <svg class="w-3.5 h-3.5 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+          <span>mrcoolpekanbaru@gmail.com</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <!-- Pin icon -->
+          <svg class="w-3.5 h-3.5 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+          <span>Pekanbaru, Riau</span>
+        </div>
+      </div>
+      
+      <!-- Quick phone numbers & Socials -->
+      <div class="flex items-center gap-4">
+        <a href="tel:0895329832165" class="flex items-center gap-1 hover:text-brand-orange font-medium transition-colors">
+          <svg class="w-3.5 h-3.5 text-brand-orange animate-pulse" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+          <span>0895-3298-32165</span>
+        </a>
+        <span class="text-white/20">|</span>
+        <div class="flex items-center gap-2">
+          <!-- Simple social icons -->
+          <span class="text-xs text-gray-500">Medsos: @MrCoolAC</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav id="navbar-main" class="w-full bg-brand-darkblue/90 absolute py-4 sm:py-5 transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+        <!-- Brand Logo (Image or SVG mascot matching the flyers) -->
+        <a href="#beranda" class="flex items-center gap-3">
+          <!-- Logo image element. Hidden by default unless uploaded. Falls back to original SVG logo -->
+          <img id="logo-img" src="/assets/logo.png" alt="Mr. Cool Logo" class="h-10 w-auto object-contain max-h-full hidden" onerror="this.classList.add('hidden'); document.getElementById('logo-svg-container').classList.remove('hidden');" onload="this.classList.remove('hidden'); document.getElementById('logo-svg-container').classList.add('hidden');">
+          
+          <div id="logo-svg-container" class="flex items-center gap-3">
+            <div class="relative w-12 h-12 rounded-full bg-slate-950 border-2 border-brand-blue flex items-center justify-center overflow-hidden">
+              <svg class="w-full h-full text-white" viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="50" r="45" fill="rgba(11, 30, 54, 0.8)"></circle>
+                <path d="M50 15V85M15 50H85" stroke="rgba(30, 144, 255, 0.4)" stroke-width="3"></path>
+                <path d="M35 55C35 50 40 47 46 47C52 47 57 50 57 55V68H35V55Z" fill="white"></path>
+                <path d="M31 68C31 58 38 52 46 52C54 52 61 58 61 68H31Z" stroke="white" stroke-width="3"></path>
+                <circle cx="46" cy="40" r="6" stroke="white" stroke-width="3"></circle>
+                <!-- Cap outline -->
+                <path d="M40 34C43 31 49 31 52 34" stroke="white" stroke-width="3"></path>
+              </svg>
+              <span class="absolute top-1 right-1 text-brand-orange text-[9px] animate-bounce">❄</span>
+            </div>
+            <div class="flex flex-col text-left">
+              <div class="flex items-baseline gap-1">
+                <span class="font-display font-black text-lg text-brand-blue">Mr.</span>
+                <span class="font-display font-black text-xl text-white uppercase italic">Cool</span>
+              </div>
+              <span class="text-[8px] font-mono tracking-widest text-gray-400 -mt-1 uppercase">AC Service Pekanbaru</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Items -->
+        <div class="hidden lg:flex items-center gap-8">
+          <div class="flex items-center gap-6">
+            <a href="#beranda" class="font-display font-semibold text-sm text-gray-200 hover:text-brand-blue transition-colors">Beranda</a>
+            <a href="#layanan" class="font-display font-semibold text-sm text-gray-200 hover:text-brand-blue transition-colors">Layanan</a>
+            <a href="#keunggulan" class="font-display font-semibold text-sm text-gray-200 hover:text-brand-blue transition-colors">Keunggulan</a>
+            <a href="#testimoni" class="font-display font-semibold text-sm text-gray-200 hover:text-brand-blue transition-colors">Testimoni</a>
+            <a href="#faq" class="font-display font-semibold text-sm text-gray-200 hover:text-brand-blue transition-colors">FAQ</a>
+            <a href="#kontak" class="font-display font-semibold text-sm text-gray-200 hover:text-brand-blue transition-colors">Kontak</a>
+          </div>
+
+          <!-- Main CTA Nav button -->
+          <a href="#kontak" class="bg-brand-blue hover:bg-brand-blueHover text-white font-display font-bold text-sm px-5 py-2.5 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 flex items-center gap-2 glow-blue">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            <span>Pesan Sekarang</span>
+          </a>
+        </div>
+
+        <!-- Mobile hamburger toggle -->
+        <button id="menu-toggle" class="lg:hidden p-2 rounded-lg bg-white/10 text-white focus:outline-none hover:bg-white/20 transition-all">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-menu" class="hidden lg:hidden w-full bg-brand-darkblue border-b border-white/10 shadow-xl py-4 px-6 flex flex-col gap-3 mt-4">
+        <a href="#beranda" class="text-gray-200 py-2 border-b border-white/5 font-semibold">Beranda</a>
+        <a href="#layanan" class="text-gray-200 py-2 border-b border-white/5 font-semibold">Layanan</a>
+        <a href="#keunggulan" class="text-gray-200 py-2 border-b border-white/5 font-semibold">Keunggulan</a>
+        <a href="#testimoni" class="text-gray-200 py-2 border-b border-white/5 font-semibold">Testimoni</a>
+        <a href="#faq" class="text-gray-200 py-2 border-b border-white/5 font-semibold">FAQ</a>
+        <a href="#kontak" class="text-gray-200 py-2 font-semibold">Kontak</a>
+        <div class="flex flex-col gap-2 pt-2">
+          <a href="https://wa.me/62895329832165?text=Halo%20Mr.%20Cool%2C%20saya%20ingin%20memesan%20layanan%20servis%20AC%20di%20Pekanbaru." target="_blank" class="bg-brand-orange hover:bg-brand-orangeHover py-3 text-center text-white font-extrabold rounded-lg glow-orange flex items-center justify-center gap-2">
+            <span>Pesan via WhatsApp</span>
+          </a>
+          <a href="tel:0895329832165" class="border border-white/20 py-3 text-center text-white font-bold rounded-lg hover:bg-white/5 flex items-center justify-center gap-2">
+            <span>Telepon Langsung</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- 2. HERO SECTION -->
+  <section id="beranda" class="relative min-h-[90vh] bg-brand-darkblue text-white flex items-center justify-center pt-32 pb-16 px-4 overflow-hidden">
+    <!-- Slider Background Images -->
+    <div class="absolute inset-0 w-full h-full select-none pointer-events-none z-0">
+      <div class="standalone-slide absolute inset-0 opacity-100 transition-all duration-[1500ms] ease-in-out scale-100">
+        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1600&q=80" alt="Slide 1" class="object-cover w-full h-full">
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-darkblue/95 via-brand-darkblue/85 to-slate-900/90 md:from-brand-darkblue/90 md:to-slate-900/80"></div>
+      </div>
+      <div class="standalone-slide absolute inset-0 opacity-0 transition-all duration-[1500ms] ease-in-out scale-105">
+        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1600&q=80" alt="Slide 2" class="object-cover w-full h-full">
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-darkblue/95 via-brand-darkblue/85 to-slate-900/90 md:from-brand-darkblue/90 md:to-slate-900/80"></div>
+      </div>
+      <div class="standalone-slide absolute inset-0 opacity-0 transition-all duration-[1500ms] ease-in-out scale-105">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80" alt="Slide 3" class="object-cover w-full h-full">
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-darkblue/95 via-brand-darkblue/85 to-slate-900/90 md:from-brand-darkblue/90 md:to-slate-900/80"></div>
+      </div>
+    </div>
+
+    <!-- Decorative visual elements -->
+    <div class="absolute top-[20%] left-[5%] text-brand-blue/20 text-3xl animate-float pointer-events-none z-10">❄</div>
+    <div class="absolute bottom-[20%] right-[5%] text-brand-blue/30 text-4xl animate-float pointer-events-none z-10" style="animation-delay: 3s;">❄</div>
+    
+    <div class="max-w-4xl mx-auto w-full flex flex-col items-center text-center relative z-20">
+      
+      <!-- Hero Center Content -->
+      <div class="flex flex-col items-center gap-6 text-center" id="standalone-hero-content" style="transition: opacity 0.4s ease-in-out;">
+        <!-- Subheading chip -->
+        <div class="inline-flex items-center gap-2 bg-brand-blue/15 border border-brand-blue/30 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-brand-blue font-mono">
+          <span class="w-2 h-2 rounded-full bg-brand-blue animate-ping"></span>
+          <span id="slide-badge">Air Conditioner Service • Pekanbaru</span>
+        </div>
+
+        <!-- Headlines -->
+        <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-tight" id="slide-title">
+          AC Sehat, <br>
+          <span class="text-brand-blue">Keluarga Nyaman</span>
+        </h1>
+
+        <p class="text-gray-300 text-lg sm:text-xl max-w-2xl leading-relaxed" id="slide-desc">
+          Servis AC cepat, rapi, dan bergaransi di Pekanbaru. Teknisi berpengalaman kami siap datang langsung ke rumah, kantor, toko, atau gedung Anda.
+        </p>
+
+        <!-- HIGH-CONVERSION CTA TRIGGERS -->
+        <div class="w-full sm:w-auto flex flex-col sm:flex-row gap-4 mt-2 justify-center">
+          <!-- WhatsApp Admin -->
+          <a href="https://wa.me/62895329832165?text=Halo%20Mr.%20Cool%2C%20saya%20ingin%20memesan%20layanan%20servis%20AC%20di%20Pekanbaru." target="_blank" class="bg-brand-orange hover:bg-brand-orangeHover text-white font-display font-extrabold text-base px-8 py-4 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02] flex items-center justify-center gap-3 glow-orange animate-pulse-subtle">
+            <!-- WhatsApp Vector Icon -->
+            <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.73-1.45L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.588 1.981 14.117.96 11.5.958c-5.439 0-9.867 4.37-9.871 9.8-.002 1.773.475 3.51 1.381 5.03L2.007 22l6.4-1.677c-1.502.82-3.111 1.251-4.73 1.251-.01 0-.02 0-.03 0z"></path></svg>
+            <span>Pesan Sekarang via WhatsApp</span>
+          </a>
+
+          <!-- Direct Phone -->
+          <a href="tel:0895329832165" class="border-2 border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white font-display font-bold text-base px-6 py-4 rounded-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2">
+            <svg class="w-5 h-5 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            <span>Telepon Langsung</span>
+          </a>
+        </div>
+
+        <!-- Mini Value Badges -->
+        <div class="flex flex-wrap gap-x-6 gap-y-2 pt-6 border-t border-white/10 w-full mt-4 text-sm text-gray-300 font-medium justify-center">
+          <div class="flex items-center gap-1.5">
+            <span class="text-brand-orange">✓</span> <span>Bergaransi</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="text-brand-orange">✓</span> <span>Teknisi Pengalaman</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="text-brand-orange">✓</span> <span>Tarif Jujur & Transparan</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide navigation controls -->
+      <div class="absolute inset-y-0 left-0 lg:-left-20 flex items-center z-30">
+        <button onclick="prevStandaloneSlide()" class="w-10 h-10 rounded-full border border-white/10 bg-slate-900/40 backdrop-blur-sm hover:bg-brand-blue hover:border-brand-blue text-white flex items-center justify-center transition-all duration-300 focus:outline-none hover:-translate-x-1" aria-label="Slide Sebelumnya">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+      </div>
+
+      <div class="absolute inset-y-0 right-0 lg:-right-20 flex items-center z-30">
+        <button onclick="nextStandaloneSlide()" class="w-10 h-10 rounded-full border border-white/10 bg-slate-900/40 backdrop-blur-sm hover:bg-brand-blue hover:border-brand-blue text-white flex items-center justify-center transition-all duration-300 focus:outline-none hover:translate-x-1" aria-label="Slide Selanjutnya">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+
+      <!-- Bullet dots indicators -->
+      <div class="flex items-center justify-center gap-2.5 mt-10 z-30 relative">
+        <button onclick="setStandaloneSlide(0)" class="standalone-dot h-2 w-8 bg-brand-orange rounded-full transition-all duration-300 focus:outline-none" aria-label="Buka slide 1"></button>
+        <button onclick="setStandaloneSlide(1)" class="standalone-dot h-2 w-2 bg-white/30 hover:bg-white/50 rounded-full transition-all duration-300 focus:outline-none" aria-label="Buka slide 2"></button>
+        <button onclick="setStandaloneSlide(2)" class="standalone-dot h-2 w-2 bg-white/30 hover:bg-white/50 rounded-full transition-all duration-300 focus:outline-none" aria-label="Buka slide 3"></button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. SERVICES SECTION (LAYANAN KAMI) -->
+  <section id="layanan" class="py-20 bg-slate-50 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      
+      <!-- Title blocks -->
+      <span class="bg-brand-blue/10 text-brand-blue text-xs px-4 py-1.5 rounded-full uppercase tracking-widest font-extrabold font-mono inline-block mb-3">Layanan Kami</span>
+      <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-brand-darkblue tracking-tight leading-none mb-3">Solusi Lengkap untuk AC Anda</h2>
+      <p class="text-gray-500 max-w-xl mx-auto text-sm sm:text-base mb-16">
+        Dari bongkar pasang unit baru hingga perbaikan darurat kebocoran, tim teknisi kami siap memberikan servis AC terbaik di Pekanbaru.
+      </p>
+
+      <!-- Services Grid (5 Cards) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Service Card 1 -->
+        <div class="bg-white border border-gray-100 hover:border-brand-blue/30 p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-start text-left group transform hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
+            <!-- Wrench icon -->
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-brand-darkblue mb-3">Bongkar Pasang AC</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">Pemasangan rapi, aman, dan bergaransi resmi. Melayani pemindahan AC lama maupun instalasi unit AC baru dengan penarikan pipa yang estetis.</p>
+          <div class="w-full pt-4 border-t border-gray-50 flex justify-between items-center text-xs font-mono font-bold">
+            <span class="text-gray-400 block text-[10px]">KONSULTASI GRATIS</span>
+            <a href="https://wa.me/62895329832165?text=Halo%20Mr.%20Cool%2C%20saya%20ingin%20memesan%20layanan%20Bongkar%20Pasang%20AC." target="_blank" class="text-brand-blue flex items-center gap-1">Pesan Sekarang <span class="group-hover:translate-x-1 transition-transform">→</span></a>
+          </div>
+        </div>
+
+        <!-- Service Card 2 -->
+        <div class="bg-white border border-gray-100 hover:border-brand-blue/30 p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-start text-left group transform hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
+            <!-- Droplets icon -->
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-brand-darkblue mb-3">Cuci AC (Cleaning)</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">Pembersihan menyeluruh unit indoor dan outdoor. Membuang lumut, debu, dan sarang kuman agar AC kembali dingin maksimal, wangi, dan hemat listrik.</p>
+          <div class="w-full pt-4 border-t border-gray-50 flex justify-between items-center text-xs font-mono font-bold">
+            <span class="text-gray-400 block text-[10px]">KONSULTASI GRATIS</span>
+            <a href="https://wa.me/62895329832165?text=Halo%20Mr.%20Cool%2C%20saya%20ingin%20memesan%20layanan%20Cuci%20AC." target="_blank" class="text-brand-blue flex items-center gap-1">Pesan Sekarang <span class="group-hover:translate-x-1 transition-transform">→</span></a>
+          </div>
+        </div>
+
+        <!-- Service Card 3 -->
+        <div class="bg-white border border-gray-100 hover:border-brand-blue/30 p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-start text-left group transform hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
+            <!-- Snowflake icon -->
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707-.707M12 5a7 7 0 100 14 7 7 0 000-14z"></path></svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-brand-darkblue mb-3">Isi & Tambah Freon</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">Pengisian gas refrigeran berkualitas premium (R32, R410a, R22). Mengatasi kendala embusan AC yang tidak dingin / hanya keluar angin hangat.</p>
+          <div class="w-full pt-4 border-t border-gray-50 flex justify-between items-center text-xs font-mono font-bold">
+            <span class="text-gray-400 block text-[10px]">KONSULTASI GRATIS</span>
+            <a href="https://wa.me/62895329832165?text=Halo%20Mr.%20Cool%2C%20saya%20ingin%20memesan%20layanan%20Isi%20Freon%20AC." target="_blank" class="text-brand-blue flex items-center gap-1">Pesan Sekarang <span class="group-hover:translate-x-1 transition-transform">→</span></a>
+          </div>
+        </div>
+
+        <!-- Service Card 4 -->
+        <div class="bg-white border border-gray-100 hover:border-brand-blue/30 p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-start text-left group transform hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
+            <!-- Tools icon -->
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-brand-darkblue mb-3">Perbaikan AC Bocor</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">Pemeriksaan dan solusi tuntas untuk AC bermasalah seperti air menetes di indoor, pipa berlendir, suara bising kompresor, hingga perbaikan kelistrikan pcb.</p>
+          <div class="w-full pt-4 border-t border-gray-50 flex justify-between items-center text-xs font-mono font-bold">
+            <span class="text-gray-400 block text-[10px]">KONSULTASI GRATIS</span>
+            <a href="https://wa.me/62895329832165?text=Halo%20Mr.%20Cool%2C%20saya%20ingin%20memesan%20layanan%20Perbaikan%20AC." target="_blank" class="text-brand-blue flex items-center gap-1">Pesan Sekarang <span class="group-hover:translate-x-1 transition-transform">→</span></a>
+          </div>
+        </div>
+
+        <!-- Service Card 5 -->
+        <div class="bg-white border border-gray-100 hover:border-brand-blue/30 p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-start text-left group transform hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
+            <!-- Shield icon -->
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-brand-darkblue mb-3">Perawatan Rutin</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">Program cuci dan pemeliharaan rutin secara berkala agar kompresor AC awet tahan lama, sirkulasi ruangan sehat, dan tagihan listrik tetap hemat.</p>
+          <div class="w-full pt-4 border-t border-gray-50 flex justify-between items-center text-xs font-mono font-bold">
+            <span class="text-gray-400 block text-[10px]">KONSULTASI GRATIS</span>
+            <a href="https://wa.me/62895329832165?text=Halo%20Mr.%20Cool%2C%20saya%20tertarik%20dengan%20program%20Perawatan%20AC%20Rutin." target="_blank" class="text-brand-blue flex items-center gap-1">Pesan Sekarang <span class="group-hover:translate-x-1 transition-transform">→</span></a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. ADVANTAGES SECTION (KEUNGGULAN & CAKUPAN) -->
+  <section id="keunggulan" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      
+      <!-- Section Headers -->
+      <span class="bg-brand-orange/10 text-brand-orange text-xs px-4 py-1.5 rounded-full uppercase tracking-widest font-extrabold font-mono inline-block mb-3">Keunggulan</span>
+      <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-brand-darkblue tracking-tight leading-none mb-4">Mengapa Memilih Kami?</h2>
+      <p class="text-gray-500 max-w-xl mx-auto text-sm sm:text-base mb-16">
+        Komitmen Mr. Cool adalah memberikan rasa aman, pengerjaan yang bersih, serta hasil embusan udara AC yang dingin sehat untuk keluarga Anda.
+      </p>
+
+      <!-- 4 Core Advantages -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <!-- Point 1 -->
+        <div class="bg-slate-50 border border-gray-100 p-6 rounded-2xl flex flex-col items-center text-center">
+          <div class="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-4 font-bold text-lg">✓</div>
+          <h3 class="font-display font-bold text-lg text-brand-darkblue mb-2">Teknisi Pengalaman</h3>
+          <p class="text-gray-500 text-xs sm:text-sm leading-relaxed">Tim teknisi kami terlatih secara profesional, jujur, santun, dan taat SOP keselamatan kerja.</p>
+        </div>
+        <!-- Point 2 -->
+        <div class="bg-slate-50 border border-gray-100 p-6 rounded-2xl flex flex-col items-center text-center">
+          <div class="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-4 font-bold text-lg">✓</div>
+          <h3 class="font-display font-bold text-lg text-brand-darkblue mb-2">Kerja Cepat & Rapi</h3>
+          <p class="text-gray-500 text-xs sm:text-sm leading-relaxed">Datang tepat waktu sesuai jadwal booking Anda. Pengerjaan cepat tanpa meninggalkan bekas kotoran.</p>
+        </div>
+        <!-- Point 3 -->
+        <div class="bg-slate-50 border border-gray-100 p-6 rounded-2xl flex flex-col items-center text-center">
+          <div class="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-4 font-bold text-lg">✓</div>
+          <h3 class="font-display font-bold text-lg text-brand-darkblue mb-2">Harga Bersahabat</h3>
+          <p class="text-gray-500 text-xs sm:text-sm leading-relaxed">Tarif servis sangat transparan dan kompetitif. Estimasi harga disampaikan sebelum pengerjaan dimulai.</p>
+        </div>
+        <!-- Point 4 -->
+        <div class="bg-slate-50 border border-gray-100 p-6 rounded-2xl flex flex-col items-center text-center">
+          <div class="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-4 font-bold text-lg">✓</div>
+          <h3 class="font-display font-bold text-lg text-brand-darkblue mb-2">Garansi Layanan</h3>
+          <p class="text-gray-500 text-xs sm:text-sm leading-relaxed">Jaminan garansi dingin selama 30 hari untuk setiap cuci dan perbaikan AC bermasalah.</p>
+        </div>
+      </div>
+
+      <!-- Scope of Buildings (Image 3 footer representation) -->
+      <div class="pt-16 border-t border-slate-100">
+        <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-brand-darkblue mb-8">Siap Melayani Segala Tipe Bangunan</h3>
+        
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div class="bg-white border border-gray-100 p-4 rounded-xl flex items-center gap-3">
+            <span class="text-xl text-brand-blue">🏠</span> <span class="font-display font-bold text-sm">Rumah Tinggal</span>
+          </div>
+          <div class="bg-white border border-gray-100 p-4 rounded-xl flex items-center gap-3">
+            <span class="text-xl text-brand-blue">🏢</span> <span class="font-display font-bold text-sm">Kantor / Ruko</span>
+          </div>
+          <div class="bg-white border border-gray-100 p-4 rounded-xl flex items-center gap-3">
+            <span class="text-xl text-brand-blue">🛍️</span> <span class="font-display font-bold text-sm">Toko Ritel</span>
+          </div>
+          <div class="bg-white border border-gray-100 p-4 rounded-xl flex items-center gap-3">
+            <span class="text-xl text-brand-blue">🏭</span> <span class="font-display font-bold text-sm">Gedung / Pabrik</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. TESTIMONIALS SECTION -->
+  <section id="testimoni" class="py-20 bg-gradient-to-b from-brand-darkblue to-slate-900 text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      
+      <span class="bg-white/10 border border-white/10 text-brand-blue text-xs px-4 py-1.5 rounded-full uppercase tracking-widest font-extrabold font-mono inline-block mb-3">Testimoni</span>
+      <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white tracking-tight leading-none mb-4">Pengalaman Pelanggan Kami</h2>
+      <p class="text-gray-300 max-w-xl mx-auto text-sm sm:text-base mb-16">
+        Dengarkan apa kata keluarga dan pemilik usaha yang telah mempercayakan kenyamanan sirkulasi udara mereka kepada Mr. Cool AC Pekanbaru.
+      </p>
+
+      <!-- Testimonial Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Review 1 -->
+        <div class="glass-card-dark rounded-2xl p-6 text-left hover:border-brand-blue/35 transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-brand-orange text-sm mb-4">★★★★★</div>
+            <p class="text-gray-300 text-sm italic leading-relaxed mb-6">"Teknisinya sangat sopan dan datang tepat waktu. Proses cuci AC sangat bersih, ditutup terpal rapi agar air tidak mengotori lantai kamar. AC langsung dingin menusuk kembali!"</p>
+          </div>
+          <div class="flex items-center gap-3 border-t border-white/5 pt-4">
+            <div class="w-10 h-10 rounded-full bg-brand-blue/20 text-brand-blue flex items-center justify-center font-bold text-sm">IR</div>
+            <div>
+              <h4 class="font-display font-bold text-sm text-white flex items-center gap-1">Ibu Rina <span class="text-green-400 text-xs">✓</span></h4>
+              <p class="text-[10px] text-gray-400 font-sans">Ibu Rumah Tangga, Panam</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="glass-card-dark rounded-2xl p-6 text-left hover:border-brand-blue/35 transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-brand-orange text-sm mb-4">★★★★★</div>
+            <p class="text-gray-300 text-sm italic leading-relaxed mb-6">"Sudah rutin langganan cuci AC kantor dan toko ritel kami setiap 3 bulan sekali. Penanganannya cepat, profesional, dan harganya sangat rasional dibanding servis AC lain."</p>
+          </div>
+          <div class="flex items-center gap-3 border-t border-white/5 pt-4">
+            <div class="w-10 h-10 rounded-full bg-brand-blue/20 text-brand-blue flex items-center justify-center font-bold text-sm">PD</div>
+            <div>
+              <h4 class="font-display font-bold text-sm text-white flex items-center gap-1">Pak Doni <span class="text-green-400 text-xs">✓</span></h4>
+              <p class="text-[10px] text-gray-400 font-sans">Pemilik Toko Ritel, Jl. Sudirman</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="glass-card-dark rounded-2xl p-6 text-left hover:border-brand-blue/35 transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-brand-orange text-sm mb-4">★★★★★</div>
+            <p class="text-gray-300 text-sm italic leading-relaxed mb-6">"Pernah memesan pengerjaan bongkar pasang 3 unit AC kost sekaligus. Kerapian pipa sangat diperhatikan, tidak berantakan, air kondensasi lancar dan tidak bocor."</p>
+          </div>
+          <div class="flex items-center gap-3 border-t border-white/5 pt-4">
+            <div class="w-10 h-10 rounded-full bg-brand-blue/20 text-brand-blue flex items-center justify-center font-bold text-sm">PH</div>
+            <div>
+              <h4 class="font-display font-bold text-sm text-white flex items-center gap-1">Pak Heru <span class="text-green-400 text-xs">✓</span></h4>
+              <p class="text-[10px] text-gray-400 font-sans">Pengelola Kost-kostan, Gobah</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. FAQ SECTION -->
+  <section id="faq" class="py-20 bg-slate-50">
+    <div class="max-w-3xl mx-auto px-4">
+      
+      <!-- FAQ title -->
+      <div class="text-center mb-12">
+        <span class="bg-brand-blue/10 text-brand-blue text-xs px-4 py-1.5 rounded-full uppercase tracking-widest font-extrabold font-mono inline-block mb-3">Tanya Jawab</span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-brand-darkblue tracking-tight mb-2">Pertanyaan yang Sering Diajukan</h2>
+        <p class="text-gray-500 text-xs sm:text-sm">Temukan jawaban cepat atas beberapa pertanyaan seputar proses pengerjaan dan garansi dingin kami.</p>
+      </div>
+
+      <!-- FAQ Accordion items -->
+      <div class="space-y-4">
+        
+        <!-- Accordion 1 -->
+        <div class="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm faq-item">
+          <button class="w-full p-5 text-left font-display font-bold text-brand-darkblue hover:text-brand-blue transition-colors flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+            <span>Berapa lama garansi servis yang diberikan?</span>
+            <span class="text-brand-blue font-bold text-xl">+</span>
+          </button>
+          <div class="faq-content bg-slate-50 text-slate-600 text-sm leading-relaxed">
+            <p class="p-5">Kami berkomitmen memberikan kenyamanan penuh. Setiap layanan cuci AC, penambahan freon, dan perbaikan berhak mendapatkan garansi pengerjaan selama 30 hari penuh.</p>
+          </div>
+        </div>
+
+        <!-- Accordion 2 -->
+        <div class="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm faq-item">
+          <button class="w-full p-5 text-left font-display font-bold text-brand-darkblue hover:text-brand-blue transition-colors flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+            <span>Apakah bisa dipanggil di hari Minggu atau hari libur?</span>
+            <span class="text-brand-blue font-bold text-xl">+</span>
+          </button>
+          <div class="faq-content bg-slate-50 text-slate-600 text-sm leading-relaxed">
+            <p class="p-5">Tentu saja bisa! Kami memahami AC rusak bisa mengganggu kenyamanan. Layanan panggilan servis AC Mr. Cool beroperasi setiap hari termasuk hari Minggu dan hari libur nasional mulai pukul 08.00 hingga 20.00 WIB.</p>
+          </div>
+        </div>
+
+        <!-- Accordion 3 -->
+        <div class="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm faq-item">
+          <button class="w-full p-5 text-left font-display font-bold text-brand-darkblue hover:text-brand-blue transition-colors flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+            <span>Bagaimana cara melakukan pemesanan servis?</span>
+            <span class="text-brand-blue font-bold text-xl">+</span>
+          </button>
+          <div class="faq-content bg-slate-50 text-slate-600 text-sm leading-relaxed">
+            <p class="p-5">Pemesanan sangat mudah! Cukup klik tombol WhatsApp atau Telepon di halaman ini, Anda akan langsung terhubung ke admin fast-response kami untuk mencatat alamat dan menjadwalkan kunjungan teknisi.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. CONTACT & MAPS LOKASI SECTION -->
+  <section id="kontak" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      
+      <!-- Headers -->
+      <div class="text-center mb-16">
+        <span class="bg-brand-blue/10 text-brand-blue text-xs px-4 py-1.5 rounded-full uppercase tracking-widest font-extrabold font-mono inline-block mb-3">Kontak Kami</span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-brand-darkblue tracking-tight mb-2">Kami Siap Menuju Tempat Anda</h2>
+        <p class="text-gray-500 max-w-xl mx-auto text-sm">Silakan isi form di bawah atau langsung klik nomor telepon untuk memanggil tim teknisi profesional kami di Pekanbaru.</p>
+      </div>
+
+      <!-- Split Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left: Interactive Form (Redirect to WhatsApp) -->
+        <div class="lg:col-span-7 bg-slate-50 border border-gray-100 p-6 sm:p-8 rounded-2xl text-left">
+          <h3 class="font-display font-bold text-xl text-brand-darkblue mb-2">Formulir Pesanan Jasa</h3>
+          <p class="text-xs text-gray-500 mb-6 leading-relaxed">Masukkan detail pengerjaan Anda di bawah ini. Ketika mengeklik tombol kirim, sistem akan otomatis mengarahkan Anda ke WhatsApp dengan pesan terformat.</p>
+
+          <form id="wa-booking-form" class="space-y-4">
+            <div>
+              <label class="text-xs font-semibold text-gray-600 block mb-1">NAMA LENGKAP</label>
+              <input id="form-name" type="text" required placeholder="Contoh: Budi Susanto" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-blue text-gray-800">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="text-xs font-semibold text-gray-600 block mb-1">NOMOR WHATSAPP</label>
+                <input id="form-phone" type="tel" required placeholder="Contoh: 0812XXXXXXXX" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-blue text-gray-800">
+              </div>
+              <div>
+                <label class="text-xs font-semibold text-gray-600 block mb-1">TIPE LAYANAN</label>
+                <select id="form-service" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-blue text-gray-800">
+                  <option>Cuci AC (Cleaning)</option>
+                  <option>Bongkar Pasang AC</option>
+                  <option>Tambah & Isi Freon</option>
+                  <option>Perbaikan AC Bermasalah</option>
+                  <option>Perawatan Rutin Berkala</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="text-xs font-semibold text-gray-600 block mb-1">ALAMAT LENGKAP PEKANBARU</label>
+              <input id="form-address" type="text" required placeholder="Contoh: Perumahan Indah Mulia Blok B No. 4, Panam" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-blue text-gray-800">
+            </div>
+
+            <div>
+              <label class="text-xs font-semibold text-gray-600 block mb-1">CATATAN MASALAH AC (OPSIONAL)</label>
+              <textarea id="form-desc" placeholder="Contoh: AC saya tidak dingin, keluar angin hangat saja dan netes air." rows="3" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-blue text-gray-800"></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-brand-orange hover:bg-brand-orangeHover text-white font-display font-black text-sm py-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 glow-orange cursor-pointer">
+              <span>Kirim Booking via WhatsApp</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Right: Contact coordinates & Maps Embed -->
+        <div class="lg:col-span-5 flex flex-col gap-6 text-left">
+          
+          <!-- Contact Detail indicators -->
+          <div class="bg-slate-50 border border-gray-100 p-5 rounded-2xl flex flex-col gap-4">
+            <div class="flex items-start gap-3">
+              <span class="text-brand-blue text-lg">📞</span>
+              <div>
+                <h4 class="font-display font-bold text-sm text-brand-darkblue">Telepon Fast Response</h4>
+                <p class="text-xs text-gray-500 font-mono mt-0.5">Admin 1: 0895329832165</p>
+                <p class="text-xs text-gray-500 font-mono">Admin 2: 081374067878</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-3 border-t border-gray-100 pt-3">
+              <span class="text-brand-blue text-lg">📍</span>
+              <div>
+                <h4 class="font-display font-bold text-sm text-brand-darkblue">Alamat Kantor Servis</h4>
+                <p class="text-xs text-gray-500 leading-relaxed mt-0.5">Jl. Lintas Timur KM. 12, Tenayan Raya, Pekanbaru, Riau</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rounded map container -->
+          <div class="rounded-3xl border border-gray-100 overflow-hidden shadow-xl aspect-video lg:aspect-[4/3] bg-slate-100 relative min-h-[250px]">
+            <iframe title="Lokasi Mr Cool AC Pekanbaru" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.48270138478!2d101.3734084!3d0.5070677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d5ac0efb520ff5%3A0xb5b7367e9154737d!2sPekanbaru%2C%20Riau!5e0!3m2!1sid!2sid!4v1710000000000" class="w-full h-full border-0 absolute inset-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. FOOTER SECTION -->
+  <footer class="bg-brand-darkblue text-gray-400 py-12 border-t border-white/5 text-center sm:text-left">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-12 gap-8 border-b border-white/5 pb-8">
+      
+      <!-- Foot Col 1: Brand & Logo -->
+      <div class="md:col-span-5 flex flex-col items-center sm:items-start gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-slate-900 border border-brand-blue flex items-center justify-center font-display font-black text-brand-blue">
+            ❄
+          </div>
+          <div class="text-left">
+            <p class="font-display font-black text-base text-white">Mr. Cool AC Service</p>
+            <p class="text-[9px] font-mono tracking-wider text-gray-500 uppercase">AC Sehat, Keluarga Nyaman</p>
+          </div>
+        </div>
+        <p class="text-xs text-gray-300 leading-relaxed max-w-sm">Jasa cuci, isi freon, bongkar pasang, dan perbaikan AC resmi, tepercaya, dan bergaransi resmi untuk wilayah Pekanbaru, Riau.</p>
+      </div>
+
+      <!-- Foot Col 2: Kategori Scope -->
+      <div class="md:col-span-4 flex flex-col items-center sm:items-start gap-3">
+        <h4 class="font-display font-bold text-white uppercase text-xs tracking-wider">Cakupan Gedung</h4>
+        <div class="grid grid-cols-2 gap-2 text-xs text-left">
+          <div class="bg-white/5 px-2.5 py-1.5 rounded">🏠 Rumah Tinggal</div>
+          <div class="bg-white/5 px-2.5 py-1.5 rounded">🏢 Kantor / Ruko</div>
+          <div class="bg-white/5 px-2.5 py-1.5 rounded">🛍️ Toko Ritel</div>
+          <div class="bg-white/5 px-2.5 py-1.5 rounded">🏫 Masjid / Sekolah</div>
+        </div>
+      </div>
+
+      <!-- Foot Col 3: Phone contacts -->
+      <div class="md:col-span-3 flex flex-col items-center sm:items-start gap-2 text-xs">
+        <h4 class="font-display font-bold text-white uppercase text-xs tracking-wider mb-2">Hubungi Fast Response</h4>
+        <p class="font-mono">Call/WA: 0895329832165</p>
+        <p class="font-mono">Call/WA: 081374067878</p>
+        <p class="text-gray-500 mt-2">Workshop: Tenayan Raya, Pekanbaru</p>
+      </div>
+
+    </div>
+
+    <!-- Copyright Sub-footer -->
+    <div class="max-w-7xl mx-auto px-4 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-500">
+      <p>Hak cipta © 2026 Mr. Cool Air Conditioner Service. Seluruh hak cipta dilindungi.</p>
+      <p>Pekanbaru, Riau, Indonesia</p>
+    </div>
+  </footer>
+
+  <!-- 9. FLOATING WHATSAPP CTA BADGE -->
+  <a href="https://wa.me/62895329832165?text=Halo%20Mr.%20Cool%2C%20saya%20ingin%20memesan%20layanan%20servis%20AC%20di%20Pekanbaru." target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 active:scale-95 group glow-orange" style="box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);">
+    <!-- WhatsApp SVG icon -->
+    <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.73-1.45L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.588 1.981 14.117.96 11.5.958c-5.439 0-9.867 4.37-9.871 9.8-.002 1.773.475 3.51 1.381 5.03L2.007 22l6.4-1.677c-1.502.82-3.111 1.251-4.73 1.251-.01 0-.02 0-.03 0z"></path></svg>
+    <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-2 font-display font-black text-xs transition-all duration-300 ease-out whitespace-nowrap">Chat Kami (Fast Respon)</span>
+  </a>
+
+  <!-- 10. INTERACTIVE JAVASCRIPT FOR LANDING PAGE ACTIONS -->
+  <script>
+    // 1. Mobile Menu Hamburger toggle
+    const menuToggleBtn = document.getElementById('menu-toggle');
+    const mobileMenuBlock = document.getElementById('mobile-menu');
+
+    menuToggleBtn.addEventListener('click', () => {
+      mobileMenuBlock.classList.toggle('hidden');
+    });
+
+    // 2. Navigation Fixed scroll dynamic styling
+    const navbarMain = document.getElementById('navbar-main');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        navbarMain.classList.add('nav-scrolled');
+        navbarMain.classList.add('fixed');
+        navbarMain.classList.remove('absolute');
+      } else {
+        navbarMain.classList.remove('nav-scrolled');
+        navbarMain.classList.remove('fixed');
+        navbarMain.classList.add('absolute');
+      }
+    });
+
+    // 3. Interactive FAQ Accordion Trigger
+    function toggleFaq(button) {
+      const parent = button.closest('.faq-item');
+      const content = parent.querySelector('.faq-content');
+      const symbol = button.querySelector('span:last-child');
+      
+      const isOpen = parent.classList.contains('faq-active');
+      
+      // Close all first
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('faq-active');
+        item.querySelector('.faq-content').style.maxHeight = null;
+        item.querySelector('button span:last-child').textContent = '+';
+      });
+
+      if (!isOpen) {
+        parent.classList.add('faq-active');
+        content.style.maxHeight = content.scrollHeight + 'px';
+        symbol.textContent = '-';
+      }
+    }
+
+    // 5. Booking Form Submission
+    const bookingForm = document.getElementById('wa-booking-form');
+    bookingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const nameInput = document.getElementById('form-name').value;
+      const phoneInput = document.getElementById('form-phone').value;
+      const serviceInput = document.getElementById('form-service').value;
+      const addressInput = document.getElementById('form-address').value;
+      const descInput = document.getElementById('form-desc').value || '-';
+
+      const bookingMsg = `Halo Mr. Cool, saya ingin booking jasa Servis AC via form website:
+- Nama Pelanggan: *${nameInput}*
+- No. WhatsApp: *${phoneInput}*
+- Layanan Jasa: *${serviceInput}*
+- Alamat Kunjungan: *${addressInput}*
+- Catatan Tambahan: *${descInput}*
+
+Mohon dikonfirmasi jadwal kedatangan teknisi ke tempat kami. Terima kasih!`;
+
+      const finalWaUrl = `https://wa.me/62895329832165?text=${encodeURIComponent(bookingMsg)}`;
+      window.open(finalWaUrl, '_blank');
+    });
+
+    // 6. Interactive Hero Slider
+    const standaloneSlides = document.querySelectorAll('.standalone-slide');
+    const standaloneDots = document.querySelectorAll('.standalone-dot');
+    const slideBadge = document.getElementById('slide-badge');
+    const slideTitle = document.getElementById('slide-title');
+    const slideDesc = document.getElementById('slide-desc');
+    const heroContainerText = document.getElementById('standalone-hero-content');
+
+    const SLIDE_DATA = [
+      {
+        badge: "Air Conditioner Service • Pekanbaru",
+        title: "AC Sehat, <br><span class='text-brand-blue'>Keluarga Nyaman</span>",
+        desc: "Servis AC cepat, rapi, dan bergaransi di Pekanbaru. Teknisi berpengalaman kami siap datang langsung ke rumah, kantor, toko, atau gedung Anda."
+      },
+      {
+        badge: "Teknisi Berpengalaman & Terpercaya",
+        title: "Teknisi Jujur, <br><span class='text-brand-blue'>Kerja Profesional</span>",
+        desc: "Pembersihan menyeluruh, pengisian freon berkualitas, dan perbaikan tuntas oleh teknisi handal yang komunikatif dan bergaransi."
+      },
+      {
+        badge: "Solusi Kantor & Tempat Usaha",
+        title: "Udara Bersih, <br><span class='text-brand-blue'>Kerja Produktif</span>",
+        desc: "Tingkatkan produktivitas kerja karyawan dan kenyamanan pelanggan Anda dengan sirkulasi udara AC yang dingin, segar, dan bersih."
+      }
+    ];
+
+    let currentStandaloneIndex = 0;
+    let sliderInterval;
+
+    function showSlide(index) {
+      currentStandaloneIndex = index;
+
+      // Update background slides visibility and zoom scales
+      standaloneSlides.forEach((slide, i) => {
+        if (i === index) {
+          slide.classList.remove('opacity-0', 'scale-105', '-z-10');
+          slide.classList.add('opacity-100', 'scale-100', 'z-0');
+        } else {
+          slide.classList.remove('opacity-100', 'scale-100', 'z-0');
+          slide.classList.add('opacity-0', 'scale-105', '-z-10');
+        }
+      });
+
+      // Fade-out text, update values, fade-in text
+      heroContainerText.style.opacity = 0;
+      setTimeout(() => {
+        slideBadge.textContent = SLIDE_DATA[index].badge;
+        slideTitle.innerHTML = SLIDE_DATA[index].title;
+        slideDesc.textContent = SLIDE_DATA[index].desc;
+        heroContainerText.style.opacity = 1;
+      }, 400);
+
+      // Update dot classes
+      standaloneDots.forEach((dot, i) => {
+        if (i === index) {
+          dot.className = "standalone-dot h-2 w-8 bg-brand-orange rounded-full transition-all duration-300 focus:outline-none";
+        } else {
+          dot.className = "standalone-dot h-2 w-2 bg-white/30 hover:bg-white/50 rounded-full transition-all duration-300 focus:outline-none";
+        }
+      });
+    }
+
+    function nextStandaloneSlide() {
+      let nextIndex = (currentStandaloneIndex + 1) % SLIDE_DATA.length;
+      showSlide(nextIndex);
+      resetSliderInterval();
+    }
+
+    function prevStandaloneSlide() {
+      let prevIndex = (currentStandaloneIndex - 1 + SLIDE_DATA.length) % SLIDE_DATA.length;
+      showSlide(prevIndex);
+      resetSliderInterval();
+    }
+
+    function setStandaloneSlide(index) {
+      showSlide(index);
+      resetSliderInterval();
+    }
+
+    function startSliderInterval() {
+      sliderInterval = setInterval(nextStandaloneSlide, 6000);
+    }
+
+    function resetSliderInterval() {
+      clearInterval(sliderInterval);
+      startSliderInterval();
+    }
+
+    // Initialize slider
+    startSliderInterval();
+  </script>
+</body>
+</html>
