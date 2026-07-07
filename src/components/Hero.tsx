@@ -19,7 +19,7 @@ const SLIDES = [
   },
   {
     id: 2,
-    tagline1: "Teknisi Jujur,",
+    tagline1: "Teknisi Berpengalaman,",
     tagline2: "Kerja Profesional",
     subTagline: "Pembersihan menyeluruh, pengisian freon berkualitas, dan perbaikan tuntas oleh teknisi handal yang komunikatif dan bergaransi.",
     imageUrl: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1600&q=80",

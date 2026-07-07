@@ -81,7 +81,7 @@
         <!-- Brand Logo (Image or SVG mascot matching the flyers) -->
         <a href="#beranda" class="flex items-center gap-3">
           <!-- Logo image element. Hidden by default unless uploaded. Falls back to original SVG logo -->
-          <img id="logo-img" src="/assets/logo.png" alt="Mr. Cool Logo" class="h-10 w-auto object-contain max-h-full hidden" onerror="this.classList.add('hidden'); document.getElementById('logo-svg-container').classList.remove('hidden');" onload="this.classList.remove('hidden'); document.getElementById('logo-svg-container').classList.add('hidden');">
+          <img id="logo-img" src="/assets/mr_cool.png" alt="Mr. Cool Logo" class="h-10 w-auto object-contain max-h-full hidden" onerror="this.classList.add('hidden'); document.getElementById('logo-svg-container').classList.remove('hidden');" onload="this.classList.remove('hidden'); document.getElementById('logo-svg-container').classList.add('hidden');">
           
           <div id="logo-svg-container" class="flex items-center gap-3">
             <div class="relative w-12 h-12 rounded-full bg-slate-950 border-2 border-brand-blue flex items-center justify-center overflow-hidden">
@@ -329,6 +329,20 @@
           </div>
         </div>
 
+        <!-- Service Card 6: Lainnya -->
+        <div class="bg-white border border-gray-100 hover:border-brand-blue/30 p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-start text-left group transform hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-6 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
+            <!-- Help Circle icon (question mark) -->
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-brand-darkblue mb-3">Lainnya</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">Punya kebutuhan servis AC di luar daftar di atas? Hubungi kami untuk berkonsultasi langsung mengenai keluhan AC Anda.</p>
+          <div class="w-full pt-4 border-t border-gray-50 flex justify-between items-center text-xs font-mono font-bold">
+            <span class="text-gray-400 block text-[10px]">KONSULTASI GRATIS</span>
+            <a href="https://wa.me/62895329832165?text=Halo%20Mr.%20Cool%2C%20saya%20ingin%20berkonsultasi%20tentang%20layanan%20AC%20lainnya." target="_blank" class="text-brand-blue flex items-center gap-1">Pesan Sekarang <span class="group-hover:translate-x-1 transition-transform">→</span></a>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -549,6 +563,7 @@
                   <option>Tambah & Isi Freon</option>
                   <option>Perbaikan AC Bermasalah</option>
                   <option>Perawatan Rutin Berkala</option>
+                  <option>Lainnya</option>
                 </select>
               </div>
             </div>
@@ -611,12 +626,17 @@
       <!-- Foot Col 1: Brand & Logo -->
       <div class="md:col-span-5 flex flex-col items-center sm:items-start gap-4">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full bg-slate-900 border border-brand-blue flex items-center justify-center font-display font-black text-brand-blue">
-            ❄
-          </div>
-          <div class="text-left">
-            <p class="font-display font-black text-base text-white">Mr. Cool AC Service</p>
-            <p class="text-[9px] font-mono tracking-wider text-gray-500 uppercase">AC Sehat, Keluarga Nyaman</p>
+          <!-- Logo image element. Hidden by default unless uploaded. Falls back to original logo layout -->
+          <img id="footer-logo-img" src="/assets/mr_cool.png" alt="Mr. Cool Logo" class="h-10 w-auto object-contain max-h-full hidden" onerror="this.classList.add('hidden'); document.getElementById('footer-logo-fallback').classList.remove('hidden');" onload="this.classList.remove('hidden'); document.getElementById('footer-logo-fallback').classList.add('hidden');">
+          
+          <div id="footer-logo-fallback" class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-slate-900 border border-brand-blue flex items-center justify-center font-display font-black text-brand-blue">
+              ❄
+            </div>
+            <div class="text-left">
+              <p class="font-display font-black text-base text-white">Mr. Cool AC Service</p>
+              <p class="text-[9px] font-mono tracking-wider text-gray-500 uppercase">AC Sehat, Keluarga Nyaman</p>
+            </div>
           </div>
         </div>
         <p class="text-xs text-gray-300 leading-relaxed max-w-sm">Jasa cuci, isi freon, bongkar pasang, dan perbaikan AC resmi, tepercaya, dan bergaransi resmi untuk wilayah Pekanbaru, Riau.</p>
@@ -743,7 +763,7 @@ Mohon dikonfirmasi jadwal kedatangan teknisi ke tempat kami. Terima kasih!`;
       },
       {
         badge: "Teknisi Berpengalaman & Terpercaya",
-        title: "Teknisi Jujur, <br><span class='text-brand-blue'>Kerja Profesional</span>",
+        title: "Teknisi Berpengalaman, <br><span class='text-brand-blue'>Kerja Profesional</span>",
         desc: "Pembersihan menyeluruh, pengisian freon berkualitas, dan perbaikan tuntas oleh teknisi handal yang komunikatif dan bergaransi."
       },
       {

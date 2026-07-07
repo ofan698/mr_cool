@@ -35,6 +35,12 @@ export const SERVICES_DATA: Service[] = [
     name: "Perawatan Rutin Berkala",
     description: "Program kontrak perawatan berkala untuk perkantoran, toko, maupun rumah tangga untuk mencegah kerusakan fatal dan memperpanjang usia pakai AC Anda.",
     iconName: "ShieldCheck"
+  },
+  {
+    id: "lainnya",
+    name: "Lainnya",
+    description: "Punya kebutuhan servis AC di luar daftar di atas? Hubungi kami untuk berkonsultasi langsung mengenai keluhan AC Anda.",
+    iconName: "HelpCircle"
   }
 ];
 

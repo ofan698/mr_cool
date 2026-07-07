@@ -13,15 +13,15 @@ interface LogoProps {
 export default function Logo({ className = "h-12", showText = true }: LogoProps) {
   const [imgError, setImgError] = useState(false);
 
-  // If the user uploads a custom logo to /assets/logo.png, we render it directly.
+  // If the user uploads a custom logo to /assets/mr_cool.png, we render it directly.
   // Otherwise, it falls back to our high-quality styled SVG logo.
   if (!imgError) {
     return (
       <div id="mrcool-logo-container" className={`flex items-center ${className}`}>
         <img
-          src="/assets/logo.png"
+          src="/assets/mr_cool.png"
           alt="Mr. Cool Logo"
-          className="h-10 w-auto object-contain max-h-full"
+          className="h-full w-auto object-contain"
           onError={() => setImgError(true)}
         />
       </div>
