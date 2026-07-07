@@ -74,27 +74,27 @@ export const ADVANTAGES_DATA: Advantage[] = [
 export const TESTIMONIALS_DATA: Testimonial[] = [
   {
     id: "testi-1",
-    name: "Ibu Rina",
-    role: "Ibu Rumah Tangga, Panam",
+    name: "Adhi Jalintim Riau",
+    role: "Perusahaan, Pekanbaru",
     rating: 5,
     comment: "Teknisinya datang tepat waktu, kerjanya sangat rapi, dan AC di kamar langsung dingin menggigil kembali. Harganya juga sangat bersahabat dibanding servis AC lain di Pekanbaru!",
-    avatarUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&h=150&q=80"
+    avatarUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZy31gYYhPBXD0CoNtHJcA4N2LsNZijSZ7RBvrIV3CLfLWj-c_G6NOHejf&s=10"
   },
   {
     id: "testi-2",
-    name: "Pak Doni",
-    role: "Pemilik Toko Ritel, Jl. Sudirman",
+    name: "UPPKB Tenayan Raya",
+    role: "Instansi Pemerintah, Jl. Lintas Timur KM 24",
     rating: 5,
     comment: "Sudah langganan cuci AC kantor dan toko tiap 3 bulan dengan Mr. Cool. Proses kerjanya cepat, tidak berisik, rapi, dan teknisinya ramah sekali. Recommended!",
-    avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80"
+    avatarUrl: "https://www.majalahlintas.com/wp-content/uploads/2024/05/Unit-Pelaksana-Penimbangan-Kendaraan-Bermotor-UPPKB-Tenayan-Raya.jpg"
   },
   {
     id: "testi-3",
     name: "Pak Heru",
-    role: "Pengelola Apartemen/Kost, Gobah",
+    role: "Pengelola Kost, Gobah",
     rating: 5,
     comment: "Pernah panggil untuk bongkar pasang 4 unit AC sekaligus. Hasil kerjanya presisi, pipa tertutup rapi, tidak ada bocor air, dan pengerjaannya sangat efisien. Mantap Mr. Cool!",
-    avatarUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150&q=80"
+    avatarUrl: "https://www.shutterstock.com/image-photo/portrait-smiling-young-indonesian-farmer-260nw-2696363691.jpg"
   }
 ];
 
